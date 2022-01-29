@@ -9,9 +9,10 @@
   },
   "author": "",
   "license": "ISC",
-  "engines":{
+  "engines": {
     "node": "14.17.6"
   },
+  
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.71",
     "@mailchimp/mailchimp_transactional": "^1.0.46",
