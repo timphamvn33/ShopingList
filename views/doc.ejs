@@ -1,0 +1,47 @@
+<%- include("header")-%>
+
+    <div class="navbar">
+        <div class="dateTime">
+            <div class="box"id ="heading">
+        
+                <% if (listTitle ===0){ %>
+                    <h1 style="color:red"><%=listTitle%></h1>
+                <%}else{  %>
+                    <h1 style="color:#000"><%=listTitle%></h1>
+               <% } %>
+            </div>
+        </div>
+        <div class="navbar_content">
+            <a href="http://localhost:3000/School">School</a>
+            <a href="http://localhost:3000/Grocery">Grocery</a>
+            <a href="http://localhost:3000">Home</a>
+
+        </div>
+    </div>
+ 
+    <div class="title">
+        <h1>Shopping List</h1>
+    </div>
+    <div class="box">
+        
+        <!-- using forEach to run the loop -->
+        <%here.forEach(function(item){%>
+            <form id="/delete" action="/delete" method="POST">
+                <div class="item">
+                    <input type="checkbox" onchange="this.form.submit()" name="checkBox" value="<%= item._id%>">
+                   <!-- add the hidden input to use for the listname -->
+                    <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+                    <p><%=item.name%></p>
+                
+                </div>
+            </form>
+           
+        <%})%>
+        
+        <form action="/" method="POST">
+            <input type="text"name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="button" value="<%=listTitle %>"">+</button>
+        </form>
+    </div>
+    <%- include("footer")-%>
+   
